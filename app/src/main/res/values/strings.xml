@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="action_settings">Settings</string>
+    <string name = "error_message">Error occurred, please try again later</string>
+    <string name= "error_image_desc">Error view</string>
+    <string name= "no_results_found">No Results Found</string>
+    <string name= "discover">Discover</string>
+    <string name= "restaurant_detail_image">Restaurant Image</string>
+    <string name="menu">Menu Categories</string>
+    <string name= "restaurant_detail">Restaurant Detail</string>
+    <string name= "address_header">Address</string>
+</resources>
