@@ -31,6 +31,9 @@ class RestaurantAdapter(private val clickListener: OnRestaurantClickListener) : 
         }
     }
 
+    /**
+     * Sets the store list based on the pagination
+     */
     fun setData(storeList: ArrayList<Stores>, nextOffset: Int) {
         if (nextOffset == 0) {
             stores.clear()

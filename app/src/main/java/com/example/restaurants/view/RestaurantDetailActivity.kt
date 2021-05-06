@@ -11,22 +11,22 @@ import com.example.restaurants.databinding.RestaurantDetailBinding
 import com.example.restaurants.viewmodel.RestaurantDetailViewModel
 import javax.inject.Inject
 
-
-class RestaurantDetailActivity: BaseActivity() {
+class RestaurantDetailActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProviderFactory
 
     private val id: Int by lazy {
-        return@lazy intent.getIntExtra("STORE_ID", 0)
+        return@lazy intent.getIntExtra(STORE_ID, 0)
     }
 
 
     private val viewBinding: RestaurantDetailBinding by lazy {
-        DataBindingUtil.setContentView<RestaurantDetailBinding>(this, R.layout.restaurant_detail).apply {
-            lifecycleOwner = this@RestaurantDetailActivity
-            detailViewModel = restaurantDetailViewModel
-        }
+        DataBindingUtil.setContentView<RestaurantDetailBinding>(this, R.layout.restaurant_detail)
+            .apply {
+                lifecycleOwner = this@RestaurantDetailActivity
+                detailViewModel = restaurantDetailViewModel
+            }
     }
 
     private val restaurantDetailViewModel by viewModels<RestaurantDetailViewModel> { viewModelFactory }
@@ -36,8 +36,8 @@ class RestaurantDetailActivity: BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(id != 0)
-        restaurantDetailViewModel.getStore(id)
+        if (id != 0)
+            restaurantDetailViewModel.getStore(id)
 
         setSupportActionBar(viewBinding.toolbar)
 
@@ -45,7 +45,8 @@ class RestaurantDetailActivity: BaseActivity() {
         supportActionBar?.setDisplayShowHomeEnabled(true)
 
         restaurantDetailViewModel.isLoading.observe(this) { isLoading ->
-            if(isLoading) viewBinding.progressBar.visibility = View.VISIBLE else viewBinding.progressBar.visibility = View.GONE
+            if (isLoading) viewBinding.progressBar.visibility =
+                View.VISIBLE else viewBinding.progressBar.visibility = View.GONE
         }
 
         restaurantDetailViewModel.storeLiveData.observe(this) {
@@ -57,7 +58,7 @@ class RestaurantDetailActivity: BaseActivity() {
             viewBinding.restaurantDesc.visibility = View.GONE
             viewBinding.restaurantImage.visibility = View.GONE
             viewBinding.menuHeader.visibility = View.GONE
-            viewBinding.menuTags.visibility =  View.GONE
+            viewBinding.menuTags.visibility = View.GONE
             viewBinding.errorView.visibility = View.VISIBLE
         }
 

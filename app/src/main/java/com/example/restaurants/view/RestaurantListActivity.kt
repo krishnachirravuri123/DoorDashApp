@@ -21,6 +21,8 @@ import java.util.*
 import javax.inject.Inject
 
 
+const val STORE_ID = "STORE_ID"
+
 class RestaurantListActivity : BaseActivity(), OnRestaurantClickListener {
 
     @Inject
@@ -67,9 +69,10 @@ class RestaurantListActivity : BaseActivity(), OnRestaurantClickListener {
                 }
             }
 
-            setOrientation()
-            viewBinding.restaurantRecyclerView.adapter = adapter
         }
+
+        setOrientation()
+        viewBinding.restaurantRecyclerView.adapter = adapter
 
         setVisibilityForItems()
 
@@ -138,7 +141,7 @@ class RestaurantListActivity : BaseActivity(), OnRestaurantClickListener {
     override fun onRestaurantClicked(store: Stores) {
 
         val intent = Intent(this, RestaurantDetailActivity::class.java).apply {
-            putExtra("STORE_ID", store.id)
+            putExtra(STORE_ID, store.id)
         }
         startActivity(intent)
 

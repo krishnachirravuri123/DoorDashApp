@@ -7,7 +7,9 @@ import javax.inject.Inject
 import javax.inject.Provider
 import kotlin.reflect.KClass
 
-
+/**
+ * Gives you the viewe model instance
+ */
 class ViewModelProviderFactory  @Inject constructor(
     private val creators: @JvmSuppressWildcards Map<Class<out ViewModel>, Provider<ViewModel>>
 ) : ViewModelProvider.Factory {

@@ -29,6 +29,7 @@ data class RestaurantDetailModel (
     @SerializedName("delivery_fee_details") var deliveryFeeDetails : DeliveryFeeDetails? = null,
     @SerializedName("object_type") var objectType : String? = null,
     @SerializedName("description") var description : String? = null,
+    // used "Any" because type is different for some restaurants
     @SerializedName("business") var business : Any? = null,
     @SerializedName("yelp_biz_id") var yelpBizId : String? = null,
     @SerializedName("asap_time") var asapTime : Int? = null,

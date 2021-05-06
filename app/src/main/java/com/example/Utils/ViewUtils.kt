@@ -3,8 +3,15 @@ package com.example.Utils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-
-fun RecyclerView.addPagination(offset: Int, totalCount: Int,limit: Int, onPaginate: (nextPage: Int) -> Unit) {
+/**
+ * Extension function for the recycler view to detect end of screen and paginates
+ */
+fun RecyclerView.addPagination(
+    offset: Int,
+    totalCount: Int,
+    limit: Int,
+    onPaginate: (nextPage: Int) -> Unit
+) {
 
     var isLoading = false
 

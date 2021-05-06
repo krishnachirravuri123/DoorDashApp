@@ -10,25 +10,27 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
-
+/**
+ * used to provide the view model instance using dagger
+ */
 @Module
 abstract class ViewModelFactoryModule {
 
 
     @Binds
     @IntoMap
-    @ViewModelKey( RestaurantViewModel::class )
+    @ViewModelKey(RestaurantViewModel::class)
     // Bind your View Model here
-    abstract fun bindMainViewModel( restaurantViewModel: RestaurantViewModel): ViewModel
+    abstract fun bindMainViewModel(restaurantViewModel: RestaurantViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey( RestaurantDetailViewModel::class )
+    @ViewModelKey(RestaurantDetailViewModel::class)
     // Bind your View Model here
-    abstract fun bindDetailViewModel( restaurantDetailViewModel: RestaurantDetailViewModel): ViewModel
+    abstract fun bindDetailViewModel(restaurantDetailViewModel: RestaurantDetailViewModel): ViewModel
 
     @Binds
-    abstract fun bindViewModelFactory( factory: ViewModelProviderFactory):
+    abstract fun bindViewModelFactory(factory: ViewModelProviderFactory):
             ViewModelProvider.Factory
 
 }

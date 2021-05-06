@@ -12,22 +12,26 @@ import java.time.LocalDateTime
  * used to set the view data from using data binding
  */
 
+// Binds the image for the restaurant
 @BindingAdapter("restaurantImage")
 fun ImageView.showRestaurantImage(url: String?) {
     if (!url.isNullOrEmpty())
         Picasso.get().load(url).into(this)
 }
 
+// Binds the restaurant name
 @BindingAdapter("restaurantName")
 fun AppCompatTextView.showRestaurantName(name: String?) {
     text = name ?: ""
 }
 
+// Binds the restaurant description
 @BindingAdapter("restaurantCuisine")
 fun AppCompatTextView.showRestaurantDesc(desc: String?) {
     text = desc ?: ""
 }
 
+// Binds the restaurant status
 @BindingAdapter("restaurantStatus")
 fun AppCompatTextView.showRestaurantStatus(store: Stores?) {
     if (store != null) {
@@ -40,6 +44,7 @@ fun AppCompatTextView.showRestaurantStatus(store: Stores?) {
     }
 }
 
+// Binds the menu Tags
 @BindingAdapter("menuTags")
 fun AppCompatTextView.showMenuTags(detailModel: RestaurantDetailModel?) {
     if (detailModel != null) {
@@ -49,6 +54,7 @@ fun AppCompatTextView.showMenuTags(detailModel: RestaurantDetailModel?) {
     }
 }
 
+// Binds the address
 @BindingAdapter("address")
 fun AppCompatTextView.showAddress(detailModel: RestaurantDetailModel?) {
     if (detailModel != null) {
